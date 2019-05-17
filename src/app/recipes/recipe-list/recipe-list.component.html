@@ -3,5 +3,5 @@
 </div>
 <hr />
 <div class="row">
-    <app-recipe-item *ngFor="let item of recipes" [recipe]="item"></app-recipe-item>
+    <app-recipe-item *ngFor="let item of recipes" [recipe]="item" (recipeSelected)="onRecipeSelected($event)"></app-recipe-item>
 </div>
