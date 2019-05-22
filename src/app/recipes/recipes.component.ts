@@ -8,6 +8,8 @@ import { RecipeService } from './recipe.service';
   styleUrls: ['./recipes.component.css'],
   providers: [RecipeService]
 })
+
+
 export class RecipesComponent implements OnInit {
   recipe: Recipe;
   constructor(private recipeSrv: RecipeService) { }
@@ -18,8 +20,6 @@ export class RecipesComponent implements OnInit {
         this.recipe = recipe
       });
   }
-
-
 
 
 
