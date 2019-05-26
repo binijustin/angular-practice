@@ -15,10 +15,10 @@ export class RecipesComponent implements OnInit {
   constructor(private recipeSrv: RecipeService) { }
 
   ngOnInit() {
-    this.recipeSrv.selectedRecipe.subscribe(
-      (recipe: Recipe) => {
-        this.recipe = recipe
-      });
+    // this.recipeSrv.selectedRecipe.subscribe(
+    //   (recipe: Recipe) => {
+    //     this.recipe = recipe
+    //   });
   }
 
 
