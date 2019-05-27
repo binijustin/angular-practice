@@ -10,25 +10,28 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class RecipeDetailsComponent implements OnInit {
   recipe: Recipe = null;
-  constructor(private recipeSrv : RecipeService, private route:ActivatedRoute, private router:Router) { }
+  index: number;
+  constructor(private recipeSrv: RecipeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    try{
-      this.recipe = this.recipeSrv.getRecipe(+this.route.snapshot.params['id'])
+    try {
+      this.index = +this.route.snapshot.params['id'];
+      this.recipe = this.recipeSrv.getRecipe(this.index)
 
-      this.route.params.subscribe((params:Params)=>{
-        this.recipe = this.recipeSrv.getRecipe(+params['id'])
+      this.route.params.subscribe((params: Params) => {
+        this.index = +params['id'];
+        this.recipe = this.recipeSrv.getRecipe(this.index)
       })
-    }catch(exception){
+    } catch (exception) {
       console.log("catched")
       this.router.navigate(["/recipes"]);
     }
-    
+
   }
 
-  
 
-  onAddIngredients(){
+
+  onAddIngredients() {
     this.recipeSrv.addIngredientsToShoppingList(this.recipe.ingredients);
   }
 
